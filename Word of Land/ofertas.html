@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPlanet - Inicio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img src="logo de la pagina/OIG2.jpeg" alt="TechPlanet"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ofertas.html">Ofertas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="acerca.html">Acerca de</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Carrito
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul id="cart-items" class="dropdown-item"></ul>
+                                <p class="dropdown-item">Total: <span id="cart-total-price">$0.00</span></p>
+                                <button onclick="checkout()" class="dropdown-item">Pagar</button>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h1>Ofertas Especiales</h1>
+            <div class="product-grid">
+
+                <!-- Lista de productos en oferta -->
+                
+                <div class="product">
+                    <img src="ofertas/ALSTROEMERIA NARANJO.webp" alt="ALSTROEMERIA NARANJO.webp">
+                    <h2>ALSTROEMERIA NARANJO</h2>
+                    <p><del>$639.990</del> $319.995</p>
+                    <button onclick="addToCart('Producto en Oferta 1', 100000, 'ALSTROEMERIA NARANJO.webp')">Agregar al Carrito</button>
+                </div>
+                <div class="product">
+                    <img src="ofertas/chono blanco.webp" alt="chono blanco">
+                    <h2>chono blanco</h2>
+                    <p><del>$157.890</del> $78.945</p>
+                    <button onclick="addToCart('chono blanco', 200000, 'chono blanco.webp')">Agregar al Carrito</button>
+                </div>
+                <div class="product">
+                    <img src="ofertas/Salvia leucantha.png" alt="Salvia leucantha">
+                    <h2>Salvia leucantha</h2>
+                    <p><del>$1.082.490</del> $541.245</p>
+                    <button onclick="addToCart('Salvia leucantha', 200000, 'Salvia leucantha.png')">Agregar al Carrito</button>
+                </div>
+                <div class="product">
+                    <img src="ofertas/Tierra de Hojas.jpg" alt="Tierra de Hojas">
+                    <h2>Tierra de Hojas</h2>
+                    <p><del>$793.790</del> $396.895</p>
+                    <button onclick="addToCart('Tierra de Hojas', 200000, 'Tierra de Hojas.jpg')">Agregar al Carrito</button>
+                </div>
+        </div>
+    </main>
+    
+       
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TechPlanet. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+    
+        function addToCart(productName, productPrice, imageUrl) {
+            cart.push({ name: productName, price: productPrice, imageUrl: imageUrl });
+            totalPrice += productPrice;
+            updateCart();
+        }
+    
+        function updateCart() {
+            const cartItemsElement = document.getElementById('cart-items');
+            cartItemsElement.innerHTML = '';
+            cart.forEach((item, index) => {
+                const li = document.createElement('li');
+                const img = document.createElement('img');
+                img.src = item.imageUrl;
+                img.alt = item.name;
+                img.style.width = '100px';
+                img.style.height = '100px';
+                li.appendChild(img);
+                const text = document.createElement('span');
+                const priceWithoutDecimals = Math.floor(item.price); 
+                text.textContent = `${item.name} - $${priceWithoutDecimals.toLocaleString('es-CL', {style: 'currency', currency: 'CLP'})}`; 
+                li.appendChild(text);
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'x';
+                removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'ml-2'); 
+                removeButton.onclick = () => removeFromCart(index); 
+                li.appendChild(removeButton);
+                cartItemsElement.appendChild(li);
+            });
+            const totalPriceWithoutDecimals = Math.floor(totalPrice); 
+            document.getElementById('cart-total-price').textContent = `$${totalPriceWithoutDecimals.toLocaleString('es-CL', {style: 'currency', currency: 'CLP'})}`; 
+        }
+    
+        function removeFromCart(index) {
+            const removedItem = cart.splice(index, 1)[0]; 
+            totalPrice -= removedItem.price; 
+            updateCart(); 
+        }
+    
+        function checkout() {
+            alert('Checkout: Total a pagar - $' + totalPrice.toFixed(2));
+        }
+    
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const productCategory = product.dataset.category;
+                if (category === 'todos' || productCategory === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

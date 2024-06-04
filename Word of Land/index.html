@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPlanet - Inicio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.html"><img src="logo de la pagina/OIG2.jpeg" alt="TechPlanet"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ofertas.html">Ofertas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="acerca.html">Acerca de</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Carrito
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul id="cart-items" class="dropdown-item"></ul>
+                                <p class="dropdown-item">Total: <span id="cart-total-price">$0.00</span></p>
+                                <button onclick="checkout()" class="dropdown-item">Pagar</button>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Iniciar Sesión</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Registrarse</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar..." aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h1>Productos Destacados</h1>
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="carrusel/eumagen 2.jpg" alt="Producto 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="carrusel/iumagen 1.webp" alt="Producto 2">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <div class="product-grid">
+                <div class="product">
+                    <img src="productos destacados/ALSTROEMERIA MORADO.webp" alt="ALSTROEMERIA MORADO">
+                    <h2>ALSTROEMERIA MORADO</h2>
+                    <p>$752.590</p>
+                    <button onclick="addToCart('ALSTROEMERIA MORADO', 639990, 'productos destacados/ALSTROEMERIA MORADO')">Agregar al Carrito</button>
+                </div>                
+                <div class="product">
+                    <img src="productos destacados/Tierra de Hoja Reforzada y Desinfectada.webp" alt="Tierra de Hoja Reforzada y Desinfectada">
+                    <h2>Tierra de Hoja Reforzada y Desinfectada</h2>
+                    <p>$45.000</p>
+                    <button onclick="addToCart('Tierra de Hoja Reforzada y Desinfectada', 42990, 'productos destacados/Tierra de Hoja Reforzada y Desinfectada.webp')">Agregar al Carrito</button>
+                </div>
+                <div class="product">
+                    <img src="productos destacados/Pitosporo tobira enano.png" alt="Pitosporo tobira enano">
+                    <h2>Pitosporo tobira enano</h2>
+                    <p>$102.405</p>
+                    <button onclick="addToCart('Pitosporo tobira enano', 123590, 'productos destacados/Pitosporo tobira enano.png')">Agregar al Carrito</button>
+                </div>
+                <div class="product">
+                    <img src="productos destacados/Marruecos blanco.webp" alt="Marruecos blanco">
+                    <h2>Marruecos blanco.webp</h2>
+                    <p>$45.000</p>
+                    <button onclick="addToCart('Marruecos blanco', 399990, 'productos destacados/Marruecos blanco.webp')">Agregar al Carrito</button>
+                </div>
+                <div class="product">
+                    <img src="productos destacados/Marruecos negro.webp" alt="Marruecos negro">
+                    <h2>Marruecos negro</h2>
+                    <p>$45.000</p>
+                    <button onclick="addToCart('Marruecos negro', 84590, 'productos destacados/Marruecos negro.webp')">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TechPlanet. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+    
+        function addToCart(productName, productPrice, imageUrl) {
+            cart.push({ name: productName, price: productPrice, imageUrl: imageUrl });
+            totalPrice += productPrice;
+            updateCart();
+        }
+    
+        function updateCart() {
+    const cartItemsElement = document.getElementById('cart-items');
+    cartItemsElement.innerHTML = '';
+    cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = item.imageUrl;
+        img.alt = item.name;
+        img.style.width = '100px';
+        img.style.height = '100px';
+        li.appendChild(img);
+        const text = document.createElement('span');
+        const priceWithoutDecimals = Math.floor(item.price); 
+        text.textContent = `${item.name} - $${priceWithoutDecimals.toLocaleString('es-CL', {style: 'currency', currency: 'CLP'})}`; 
+        li.appendChild(text);
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'x';
+        removeButton.classList.add('btn', 'btn-danger', 'btn-sm', 'ml-2'); 
+        removeButton.onclick = () => removeFromCart(index); 
+        li.appendChild(removeButton);
+        cartItemsElement.appendChild(li);
+    });
+    const totalPriceWithoutDecimals = Math.floor(totalPrice); 
+    document.getElementById('cart-total-price').textContent = `$${totalPriceWithoutDecimals.toLocaleString('es-CL', {style: 'currency', currency: 'CLP'})}`; 
+}
+
+
+function removeFromCart(index) {
+    const removedItem = cart.splice(index, 1)[0]; 
+    totalPrice -= removedItem.price; 
+    updateCart(); 
+}
+
+
+
+    
+        function checkout() {
+            alert('Checkout: Total a pagar - $' + totalPrice.toFixed(2));
+        }
+    </script>
+    
+    
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Correo electrónico</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="formulario.js"></script>
+</body>
+</html>
